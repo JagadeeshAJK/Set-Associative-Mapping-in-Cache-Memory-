@@ -1,4 +1,4 @@
-# **Set Associative Mapping in Cache Memory **
+# ** Set Associative Mapping in Cache Memory **
 
 In modern computing systems, cache memory plays a crucial role in
 bridging the speed gap between the processor and the main memory. Efficient cache
@@ -19,7 +19,7 @@ consistency between cache and main memory (RAM).
  
    Cache leverages temporal locality by storing recently accessed data for quick reuse and spatial locality by fetching and storing nearby memory locations likely to be accessed soon.The efficiency of a cache system depends on the mapping strategy.
 
-**1. Direct Mapping :** Each memory block maps to exactly one cache line.
+**1. Direct Mapping :** Each memory block maps to exactly one cache line.<br>
 **Advantages :** Simple hardware, fast access.
 **Disadvantages :** High rate of conflict misses — different blocks competing for the same cache line, even if others are empty.
 
