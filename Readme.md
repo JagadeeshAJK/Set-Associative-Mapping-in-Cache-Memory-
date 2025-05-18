@@ -1,4 +1,4 @@
-# **APB Protocol**
+# **Set Associative Mapping in Cache Memory **
 
 This project implements the Advanced Peripheral Bus (APB) protocol for interfacing peripherals in ARM-based systems. The APB protocol is designed for low power, low bandwidth applications and is ideal for connecting peripherals like timers, UARTs, and other simple devices in embedded systems.
 
@@ -15,7 +15,7 @@ The **APB Protocol Project** provides a Verilog/VHDL-based implementation of the
 - **Low Power Operation:** Designed with low-power operation in mind.
 
 ## APB Interface Block Diagram With Slaves :
-![ARCH](https://github.com/JagadeeshAJK/APB_master_slave_protocol/blob/main/APB_architecture.png)
+![ARCH](h)
 ## APB Protocol Implementation using Verilog :
 Implementing the APB protocol in Verilog involves defining the bus signals and designing
 the master and slave modules. Verilog provides a robust framework for describing hardware designs
@@ -30,7 +30,7 @@ master.<br>
 **Pslave1** - 000(0) to 011(3) <br>
 **Pslave2** - 100(4) to 111(7)
 - **Slave Modules (2-slaves) :** The APB slave module responds to the master's requests and
-handles the data transactions.
+handles the data trans
 - **State Diagram :** A state machine manages the different phases of the APB protocol,
 ensuring proper synchronization and data transfer.
 
@@ -51,7 +51,7 @@ master and slave modules.
 - **Prdata[15:0] :** Contains the data read from the slave.
 
 ## State Diagram
-![SD](https://github.com/JagadeeshAJK/APB_master_slave_protocol/blob/main/statediagram.png)
+![SD](g)
 
 ## **Project Structure**
 
@@ -62,9 +62,9 @@ This section describes the following types of write transfer:
 -  With wait states
 All signals shown in this section are sampled at the rising edge of Pclk.
 ## - Write Transfer with no wait state:
-![WNwait](https://github.com/JagadeeshAJK/APB_master_slave_protocol/blob/main/Write_nowait_state.png)
+![WNwait](h)
 ## - Write Transfer with wait state:
-![Wwait](https://github.com/JagadeeshAJK/APB_master_slave_protocol/blob/main/Write_wait_state.png)
+![Wwait](h)
 
 
 ## READ TRANSFER
@@ -73,6 +73,6 @@ This section describes the following types of read transfer:
 -  With wait states
 All signals shown in this section are sampled at the rising edge of Pclk.
 ## Read Transfer with no wait state :
-![RNwait](https://github.com/JagadeeshAJK/APB_master_slave_protocol/blob/main/Read_nowait_state.png)
+![RNwait](o)
 ## Read Transfer with no wait state :
-![Rwait](https://github.com/JagadeeshAJK/APB_master_slave_protocol/blob/main/Read_wait_state.png)
+![Rwait](r)
