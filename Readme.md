@@ -20,11 +20,11 @@ consistency between cache and main memory (RAM).
    Cache leverages temporal locality by storing recently accessed data for quick reuse and spatial locality by fetching and storing nearby memory locations likely to be accessed soon.The efficiency of a cache system depends on the mapping strategy.
 
 **1. Direct Mapping :** Each memory block maps to exactly one cache line.<br>
-**Advantages :** Simple hardware, fast access.
+**Advantages :** Simple hardware, fast access.<br>
 **Disadvantages :** High rate of conflict misses — different blocks competing for the same cache line, even if others are empty.
 
-**2. Fully Associative Mapping :** Any memory block can be stored in any cache line.
-**Advantages :** No conflict misses; highly flexible.
+**2. Fully Associative Mapping :** Any memory block can be stored in any cache line.<br>
+**Advantages :** No conflict misses; highly flexible.<br>
 **Disadvantages :** Expensive hardware; slower due to multiple tag comparisons.
 
 ---
