@@ -1,6 +1,18 @@
 # **Set Associative Mapping in Cache Memory **
 
-This project implements the Advanced Peripheral Bus (APB) protocol for interfacing peripherals in ARM-based systems. The APB protocol is designed for low power, low bandwidth applications and is ideal for connecting peripherals like timers, UARTs, and other simple devices in embedded systems.
+In modern computing systems, cache memory plays a crucial role in
+bridging the speed gap between the processor and the main memory. Efficient cache
+design is essential for enhancing system performance by reducing memory access
+latency. Among various cache mapping techniques, set-associative mapping strikes a
+balance between simplicity and flexibility, minimizing conflict misses while
+maintaining manageable hardware complexity.
+ This project presents the design and simulation of a set-associative cache 
+memory using Verilog Hardware Description Language (HDL). The implementation 
+features a 4-set cache with 4 ways per set, enabling multiple blocks to reside in the 
+same set to improve hit rates. Key functionalities such as read and write operations, 
+tag comparison, valid bit checking, and FIFO (First-In-First-Out) replacement policy 
+are modeled at the RTL level. A write-through policy is adopted to ensure data 
+consistency between cache and main memory (RAM).
 
 ## **Overview**
 The **APB Protocol Project** provides a Verilog/VHDL-based implementation of the APB protocol, including both master and slave interfaces. This project is designed to be flexible and easily integrated into larger systems. It includes:
