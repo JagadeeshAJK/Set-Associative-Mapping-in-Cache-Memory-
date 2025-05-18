@@ -25,7 +25,7 @@ consistency between cache and main memory (RAM).
 
 **2. Fully Associative Mapping :** Any memory block can be stored in any cache line.<br>
 **Advantages :** No conflict misses; highly flexible.<br>
-**Disadvantages :** Expensive hardware; slower due to multiple tag comparisons.
+**Disadvantages :** Expensive hardware; slower due to multiple tag comparisons.<br>
 **3. Set-Associative Mapping :** A hybrid approach the cache is divided into multiple sets, and each set has multiple lines (ways).<br>
 A memory block maps to a specific set, but within the set, it can occupy any line.
 
