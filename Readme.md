@@ -14,11 +14,18 @@ tag comparison, valid bit checking, and FIFO (First-In-First-Out) replacement po
 are modeled at the RTL level. A write-through policy is adopted to ensure data 
 consistency between cache and main memory (RAM).
 
-## **Overview**
-The **APB Protocol Project** provides a Verilog/VHDL-based implementation of the APB protocol, including both master and slave interfaces. This project is designed to be flexible and easily integrated into larger systems. It includes:
-- Master and slave APB interface models.
-- Verilog/VHDL code for the APB protocol.
-- A testbench for simulation and verification.
+## **Introduction**
+   Modern computer systems rely on fast memory access to maintain high performance. However, accessing data directly from main memory (RAM) is significantly slower than accessing data from the processor's cache. To bridge this speed gap, caches are employed. These are small, fast memory structures that store frequently accessed data.
+ 
+   Cache leverages temporal locality by storing recently accessed data for quick reuse and spatial locality by fetching and storing nearby memory locations likely to be accessed soon.The efficiency of a cache system depends on the mapping strategy.
+
+1. Direct Mapping : Each memory block maps to exactly one cache line.
+Advantages : Simple hardware, fast access.
+Disadvantages : High rate of conflict misses — different blocks competing for the same cache line, even if others are empty.
+
+2. Fully Associative Mapping : Any memory block can be stored in any cache line.
+Advantages : No conflict misses; highly flexible.
+Disadvantages : Expensive hardware; slower due to multiple tag comparisons.
 
 ---
 
