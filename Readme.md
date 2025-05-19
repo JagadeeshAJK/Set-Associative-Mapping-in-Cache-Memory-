@@ -78,6 +78,8 @@ Modules Used
 ## Cache Specifications
 
  Main Memory Blocks: 64           &          Cache Lines: 16
+ 
+![ARCH](https://github.com/JagadeeshAJK/Set-Associative-Mapping-in-Cache-Memory-/blob/main/Main%20memory%20to%20Cache%20Mapping.jpg)
 
 Physical Address (Block) - 6 bits        &       Tag bits (cache) – 4 bits
 
@@ -95,7 +97,7 @@ Physical Address (Block) - 6 bits        &       Tag bits (cache) – 4 bits
 
 
 
-![ARCH](https://github.com/JagadeeshAJK/Set-Associative-Mapping-in-Cache-Memory-/blob/main/Main%20memory%20to%20Cache%20Mapping.jpg)
+
 ## APB Protocol Implementation using Verilog :
 Implementing the APB protocol in Verilog involves defining the bus signals and designing
 the master and slave modules. Verilog provides a robust framework for describing hardware designs
