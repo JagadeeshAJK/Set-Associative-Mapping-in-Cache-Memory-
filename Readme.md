@@ -32,7 +32,7 @@ consistency between cache and main memory (RAM).
 **Advantages :** No conflict misses; highly flexible.<br>
 **Disadvantages :** Expensive hardware; slower due to multiple tag comparisons.<br>
 
-**3. Set-Associative Mapping :** A hybrid approach the cache is divided into multiple sets, and each set has multiple lines (ways).<br>
+**3. Set-Associative Mapping :** A hybrid approach the cache is divided into multiple sets, and each set has multiple lines(ways).<br>
 A memory block maps to a specific set, but within the set, it can occupy any line.
 
 ---
