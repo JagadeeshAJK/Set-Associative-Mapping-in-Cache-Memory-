@@ -111,7 +111,7 @@ We use the last 2 bits (address[1:0]) to decide the set.
 | 11  | Set 3               | 3, 7, 11, 15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63 |
 
 
-
+![pro](https://github.com/JagadeeshAJK/Set-Associative-Mapping-in-Cache-Memory-/blob/main/mapping%20in%20verilog.jpg)
 
 
 
@@ -160,6 +160,9 @@ This testbench simulates the cache system by generating clock, reset, and read/w
 The $dumpvars statements help trace internal cache states, such as data, valid bits, and cache hits or misses during simulation.
 
 # Simulation & Output Analysis
+
+
+![pro](https://github.com/JagadeeshAJK/Set-Associative-Mapping-in-Cache-Memory-/blob/main/simulation.png)
 
 The waveform generated using GTKWave displays the functional behavior of a 4-way set-associative cache system during read and write operations. Initially, a reset is applied to invalidate all cache entries and clear previous data. During the simulation,various 6-bit physical addresses are provided for both read and write operations.
 
