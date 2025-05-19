@@ -36,7 +36,7 @@ A memory block maps to a specific set, but within the set, it can occupy any lin
 - **Low Power Operation:** Designed with low-power operation in mind.
 
 ## APB Interface Block Diagram With Slaves :
-![ARCH](h)
+![ARCH](https://github.com/JagadeeshAJK/Set-Associative-Mapping-in-Cache-Memory-/blob/main/Main%20memory%20to%20Cache%20Mapping.jpg)
 ## APB Protocol Implementation using Verilog :
 Implementing the APB protocol in Verilog involves defining the bus signals and designing
 the master and slave modules. Verilog provides a robust framework for describing hardware designs
@@ -83,13 +83,13 @@ This section describes the following types of write transfer:
 -  With wait states
 All signals shown in this section are sampled at the rising edge of Pclk.
 ## - Write Transfer with no wait state:
-![WNwait](h)
+![WNwait](https://github.com/JagadeeshAJK/Set-Associative-Mapping-in-Cache-Memory-/blob/main/Cache.jpg)
 ## - Write Transfer with wait state:
-![Wwait](h)
+![Wwait](https://github.com/JagadeeshAJK/Set-Associative-Mapping-in-Cache-Memory-/blob/main/Types%20of%20Mapping.jpg)
 
 
 ## READ TRANSFER
-This section describes the following types of read transfer:
+This section describes the following types of retransfer:
 -  With no wait states
 -  With wait states
 All signals shown in this section are sampled at the rising edge of Pclk.
