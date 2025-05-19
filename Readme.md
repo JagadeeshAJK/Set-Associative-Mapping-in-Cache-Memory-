@@ -66,13 +66,13 @@ This cache design represents the Level 1 (L1) or Level 2 (L2) cache level in the
 
 Modules Used
 
-### A. cache.v:
+### A. cache2.v:
   Main module implementing 4-set, 4-way associative cache
 
 ### B. ram_module.v: 
   Simulated main memory (RAM)
 
-### C. testbench (qwe.v): 
+### C. testbench (cache2tb.v): 
   Stimulates and validates cache behavior.
 
 ## Cache Specifications
