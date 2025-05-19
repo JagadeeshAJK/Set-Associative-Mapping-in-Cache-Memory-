@@ -1,4 +1,4 @@
-# ** Set Associative Mapping in Cache Memory **
+# **Set Associative Mapping in Cache Memory**
 
 In modern computing systems, cache memory plays a crucial role in
 bridging the speed gap between the processor and the main memory. Efficient cache
