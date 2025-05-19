@@ -16,8 +16,9 @@ consistency between cache and main memory (RAM).
 
 ## **Introduction**
    Modern computer systems rely on fast memory access to maintain high performance. However, accessing data directly from main memory (RAM) is significantly slower than accessing data from the processor's cache. To bridge this speed gap, caches are employed. These are small, fast memory structures that store frequently accessed data.
- 
+ ![WNwait](https://github.com/JagadeeshAJK/Set-Associative-Mapping-in-Cache-Memory-/blob/main/Cache.jpg)
    Cache leverages temporal locality by storing recently accessed data for quick reuse and spatial locality by fetching and storing nearby memory locations likely to be accessed soon.The efficiency of a cache system depends on the mapping strategy.
+![Wwait](https://github.com/JagadeeshAJK/Set-Associative-Mapping-in-Cache-Memory-/blob/main/Types%20of%20Mapping.jpg)
 
 **1. Direct Mapping :** Each memory block maps to exactly one cache line.<br>
 **Advantages :** Simple hardware, fast access.<br>
@@ -83,9 +84,8 @@ This section describes the following types of write transfer:
 -  With wait states
 All signals shown in this section are sampled at the rising edge of Pclk.
 ## - Write Transfer with no wait state:
-![WNwait](https://github.com/JagadeeshAJK/Set-Associative-Mapping-in-Cache-Memory-/blob/main/Cache.jpg)
+
 ## - Write Transfer with wait state:
-![Wwait](https://github.com/JagadeeshAJK/Set-Associative-Mapping-in-Cache-Memory-/blob/main/Types%20of%20Mapping.jpg)
 
 
 ## READ TRANSFER
