@@ -95,7 +95,11 @@ Physical Address (Block) - 6 bits        &       Tag bits (cache) – 4 bits
 • Managed via a simple counter (nf register) to track next victim in the set
 
 
+# Set Mapping
 
+We use the last 2 bits (address[1:0]) to decide the set.
+
+  *Set Index = (Address) mod (Number of Sets)*
 
 
 
