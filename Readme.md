@@ -59,6 +59,42 @@ This type of cache structure is used in CPUs, DSPs, and SoCs to reduce average m
 
 ### PART OF MEMORY HIERARCHY : 
 This cache design represents the Level 1 (L1) or Level 2 (L2) cache level in the processor’s memory hierarchy, acting  as a fast intermediary between registers and main memory (RAM).
+
+
+
+# Set-Associative Mapping Implementation in Verilog :
+
+Modules Used
+
+### A. cache.v:
+  Main module implementing 4-set, 4-way associative cache
+
+### B. ram_module.v: 
+  Simulated main memory (RAM)
+
+### C. testbench (qwe.v): 
+  Stimulates and validates cache behavior.
+
+## Cache Specifications
+
+ Main Memory Blocks: 64           &          Cache Lines: 16
+
+Physical Address (Block) - 6 bits        &       Tag bits (cache) – 4 bits
+
+• Sets: 4 <br>
+• Ways per Set: 4<br>
+• Address Width: 6 bits<br>
+• Data Width: 8 bits<br>
+• Tag Width: 4 bits  (from address[5:2])<br>
+• Index Width: 2 bits (from address[1:0])<br>
+
+## Replacement Policy
+• FIFO (First-In First-Out) per set<br>
+• Managed via a simple counter (nf register) to track next victim in the set
+
+
+
+
 ![ARCH](https://github.com/JagadeeshAJK/Set-Associative-Mapping-in-Cache-Memory-/blob/main/Main%20memory%20to%20Cache%20Mapping.jpg)
 ## APB Protocol Implementation using Verilog :
 Implementing the APB protocol in Verilog involves defining the bus signals and designing
