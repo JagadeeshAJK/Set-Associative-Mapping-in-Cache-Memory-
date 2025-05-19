@@ -37,11 +37,50 @@ A memory block maps to a specific set, but within the set, it can occupy any lin
 
 ---
 
-## **Features**
-- **Master and Slave APB Interface:** Implementations for both the master and slave sides of the protocol.
-- **Low Power Operation:** Designed with low-power operation in mind.
+# SET-ASSOCIATIVE MAPPING
 
-## APB Interface Block Diagram With Slaves :
+## PURPOSE : 
+To design and simulate a set-associative cache memory using Verilog 
+
+HDL to improve memory access speed and reduce processor-memory latency 
+
+in digital systems.
+
+FEATURES :
+
+• Implements a 4-set, 4-way associative cache.
+
+• Supports read and write operations with valid bit tracking.
+
+• Uses FIFO (First-In-First-Out) replacement policy.
+
+• Incorporates a write-through policy to update both cache and main memory.
+
+• Efficient handling of cache hits and misses.
+
+HOW IT WORKS : Memory access requests (read/write) are compared with cache 
+
+tags in the appropriate set.
+
+• If a tag match is found and valid, it results in a cache hit.
+
+• If no match is found, it results in a miss, and data is fetched from RAM and 
+
+stored in the cache using FIFO replacement.
+
+• Writes update both the cache and RAM simultaneously.
+
+WHERE IT'S USED : This type of cache structure is used in CPUs, DSPs, and 
+
+SoCs to reduce average memory access time and improve overall system 
+
+performance.
+
+PART OF MEMORY HIERARCHY : This cache design represents the Level 1 
+
+(L1) or Level 2 (L2) cache level in the processor’s memory hierarchy, acting 
+
+as a fast intermediary between registers and main memory (RAM).
 ![ARCH](https://github.com/JagadeeshAJK/Set-Associative-Mapping-in-Cache-Memory-/blob/main/Main%20memory%20to%20Cache%20Mapping.jpg)
 ## APB Protocol Implementation using Verilog :
 Implementing the APB protocol in Verilog involves defining the bus signals and designing
