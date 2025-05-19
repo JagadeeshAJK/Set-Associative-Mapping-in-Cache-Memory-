@@ -65,12 +65,12 @@ This cache design represents the Level 1 (L1) or Level 2 (L2) cache level in the
 # Set-Associative Mapping Implementation in Verilog :
 
 Modules Used
-
-### A. cache2.v:
+### A. ram_module.v: 
+  Simulated main memory (RAM)
+  
+### B. cache2.v:
   Main module implementing 4-set, 4-way associative cache
 
-### B. ram_module.v: 
-  Simulated main memory (RAM)
 
 ### C. testbench (cache2tb.v): 
   Stimulates and validates cache behavior.
@@ -98,28 +98,7 @@ Physical Address (Block) - 6 bits        &       Tag bits (cache) – 4 bits
 
 
 
-## APB Protocol Implementation using Verilog :
-Implementing the APB protocol in Verilog involves defining the bus signals and designing
-the master and slave modules. Verilog provides a robust framework for describing hardware designs
-at the register-transfer level (RTL).
-- **Master Module :** The APB master module initiates the data transfers by generating read
-and write requests.
-- **MUX Module :** The APB MUX module initiates the slave selection by generating Psel<br>
-  ---> It takes the address (Paddr) and selects the appropriate slave based on the range
-of addresses assigned to each peripheral.<br>
-  ---> It forwards the correct peripheral’s data lines (Prdata/Pwdata) to/from the
-master.<br>
-**Pslave1** - 000(0) to 011(3) <br>
-**Pslave2** - 100(4) to 111(7)
-- **Slave Modules (2-slaves) :** The APB slave module responds to the master's requests and
-handles the data trans
-- **State Diagram :** A state machine manages the different phases of the APB protocol,
-ensuring proper synchronization and data transfer.
 
-
-
-
- Mapping of Quantization Levels
 | Set Index (Binary) | Set Number | Addresses that map to this set |
 |----------------|-----------------|-----------------|
 | 00         | Set 0               | 0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60 |
@@ -134,41 +113,52 @@ ensuring proper synchronization and data transfer.
 
 
 
-## APB Protocol Architecture and Signals :
-### Address Signals :
-The APB protocol defines a set of signals for communication between the
-master and slave modules.
-- **Paddr[2:0] :** Specifies the address of the slave device.
-- **Psel :** Activates the selected slave device.
-### Control Signals :
-- **Pwrite :** Indicates whether the transaction is a write or read operation.
-- **Pready :** Indicates that the slave is ready to accept or provide data.
-### Data Signals :
-- **Pwdata[15:0] :** Contains the data to be written to the slave.
-- **Prdata[15:0] :** Contains the data read from the slave.
+# A. RAM Module
 
-## State Diagram
-![SD](g)
-
-## **Project Structure**
+This ram_module simulates a 64-location main memory, where each location holds 8-bit data. It supports read and write operations based on a 6-bit address input.When write_enable is high, the input data is written to the specified address. On read,the data at that address is continuously available at the output. The initial block preloads specific addresses for testing. This RAM serves as the backend memory for the cache in a write-through cache system.
 
 
-## WRITE TRANSFER
-This section describes the following types of write transfer:
--  With no wait states
--  With wait states
-All signals shown in this section are sampled at the rising edge of Pclk.
-## - Write Transfer with no wait state:
+## Module Instantiation Explanation:
+The ram_module is instantiated as ram_inst inside the cache module to simulate main memory. It takes the following 
 
-## - Write Transfer with wait state:
+inputs:<br>
+• cpu_address (6-bit): Address for memory access<br>
+• data_in (8-bit): Data to be written<br>
+• write_enable (1-bit): Enables write operation<br>
+
+It outputs:<br>
+• data_out (8-bit): Data read from RAM<br>
+
+This module provides data on a cache miss and stores data on a write-through,enabling interaction between cache and RAM.
 
 
-## READ TRANSFER
-This section describes the following types of retransfer:
--  With no wait states
--  With wait states
-All signals shown in this section are sampled at the rising edge of Pclk.
-## Read Transfer with no wait state :
-![RNwait](o)
-## Read Transfer with no wait state :
-![Rwait](r)
+
+
+# B. Cache Module (Cache2.v)
+## Write Operation Logic (Verilog):
+
+This always block handles cache write operations. If the address tag matches one in the cache set, it's a cache hit, and data is written to both the cache and RAM (write-through policy).<br>
+• On a miss, the cache looks for an empty (invalid) line to write the data and update the tag and valid bit.<br>
+• If the set is full, it uses FIFO replacement to evict an old entry and store the new data.<br>
+  Since the design uses a write-through policy, all writes go directly to RAM as well, and no dirty bit is required.
+
+
+## Read Operation Logic (Verilog):
+
+This always block handles cache read operations on each clock or reset. Upon reset, all cache blocks are invalidated.<br>
+During a read, the set index is extracted from the address, and the cache checks all 4 ways for a tag match.<br>
+• If a match is found (valid tag), it's a cache hit, and data is returned from the cache.<br>
+• If no match, it's a cache miss. The code then looks for an empty (invalid) line in the set to store data fetched from RAM.<br>
+• If all lines are valid, it uses FIFO replacement to evict an old entry and bring in the new data.
+
+# C. Test Bench (Cache2tb.v)
+This testbench simulates the cache system by generating clock, reset, and read/write control signals. It initializes the cache, performs several read and write operations using different addresses, and records signal activity using VCD output.<br>
+The $dumpvars statements help trace internal cache states, such as data, valid bits, and cache hits or misses during simulation.
+
+# Simulation & Output Analysis
+
+The waveform generated using GTKWave displays the functional behavior of a 4-way set-associative cache system during read and write operations. Initially, a reset is applied to invalidate all cache entries and clear previous data. During the simulation,various 6-bit physical addresses are provided for both read and write operations.
+
+When a read operation is performed, the cache checks for a tag match within the selected set (based on index bits). If a match is found, it's a cache hit, and the data is directly retrieved from the cache (hit=1). If not found, a cache miss occurs (miss=1),and data is fetched from RAM and stored into the cache. In case of a write operation, data is written both to the RAM and into the cache, updating the corresponding line and tag.
+
+The simulation also shows the FIFO replacement mechanism in action when all four ways in a set are occupied. The nf pointer determines the next cache line to be replaced.
