@@ -59,6 +59,21 @@ ensuring proper synchronization and data transfer.
 
 
 
+ Mapping of Quantization Levels
+| Set Index (Binary) | Set Number | Addresses that map to this set |
+|----------------|-----------------|-----------------|
+| 00         | Set 0               | 0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60 |
+| 01     | Set 1               | 1, 5, 9, 13, 17, 21, 25, 29, 33, 37, 41, 45, 49, 53, 57, 61 |
+| 10   | Set 2               | 2, 6, 10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62 |
+| 11  | Set 3               | 3, 7, 11, 15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63 |
+
+
+
+
+
+
+
+
 ## APB Protocol Architecture and Signals :
 ### Address Signals :
 The APB protocol defines a set of signals for communication between the
