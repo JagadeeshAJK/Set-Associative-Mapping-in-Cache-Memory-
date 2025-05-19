@@ -17,6 +17,7 @@ consistency between cache and main memory (RAM).
 
 ## **Introduction**
   &nbsp;&nbsp;&nbsp;&nbsp; Modern computer systems rely on fast memory access to maintain high performance. However, accessing data directly from main memory (RAM) is significantly slower than accessing data from the processor's cache. To bridge this speed gap, caches are employed. These are small, fast memory structures that store frequently accessed data.
+  
  ![WNwait](https://github.com/JagadeeshAJK/Set-Associative-Mapping-in-Cache-Memory-/blob/main/Cache.jpg)
 
  &nbsp;&nbsp;&nbsp;&nbsp;  Cache leverages **temporal locality** by storing recently accessed data for quick reuse and **spatial locality** by fetching and storing nearby memory locations likely to be accessed soon.The efficiency of a cache system depends on the mapping strategy.
@@ -30,6 +31,7 @@ consistency between cache and main memory (RAM).
 **2. Fully Associative Mapping :** Any memory block can be stored in any cache line.<br>
 **Advantages :** No conflict misses; highly flexible.<br>
 **Disadvantages :** Expensive hardware; slower due to multiple tag comparisons.<br>
+
 **3. Set-Associative Mapping :** A hybrid approach the cache is divided into multiple sets, and each set has multiple lines (ways).<br>
 A memory block maps to a specific set, but within the set, it can occupy any line.
 
